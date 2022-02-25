@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% block content %}
+    <ul>
+        {{ macro.display_movies_list(movies_list) }}
+    </ul>
+{% endblock %}
