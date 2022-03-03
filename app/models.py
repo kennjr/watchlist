@@ -1,3 +1,5 @@
+from . import datab
+
 class Movie:
     def __init__(self, movie_id, title, overview, poster, vote_average, vote_count):
         self.movie_id = movie_id
@@ -35,3 +37,12 @@ class Review:
                 response.append(review)
 
         return response
+
+
+class User(datab.Model):
+    __tablename__ = "users"
+    id = datab.Column(datab.Integer, primary_key=True)
+    username = datab.Column(datab.String(255))
+
+    def __repr__(self):
+        return f"User {self.username}"

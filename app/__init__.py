@@ -4,6 +4,7 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import DevConfig
 import config
+from flask_sqlalchemy import SQLAlchemy
 
 # Initializing application
 # The instance_relative_config arg allows us to connect ot the instance dir when the app instance is created
@@ -15,9 +16,13 @@ app.config.from_pyfile("config.py")
 # Initializing Flask Extensions
 
 
-from app.main import error, views
+#from app.main import error, views
+import app.main.views as views
+import app.main.error as error
+
 
 bootstrap = Bootstrap()
+datab = SQLAlchemy()
 
 
 def create_app(config_name):
@@ -28,6 +33,7 @@ def create_app(config_name):
 
     # Initializing flask extensions
     bootstrap.init_app(app)
+    datab.init_app(app)
 
     # Will add the views and forms
     # Registering the blueprint

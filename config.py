@@ -11,7 +11,7 @@ class Config:
     MOVIES_DB_BASE_URL = "https://api.themoviedb.org/3/movie/{}?api_key={}"
     MOVIE_API_KEY = os.environ.get('API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-
+    SQLAlchemy = "postgresql+psycopg2://kenny:password@localhost/watchlist"
 
 class ProdConfig(Config):
     """
